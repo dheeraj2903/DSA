@@ -1,7 +1,7 @@
 // Find minimum element
 
 function minNum() {
-    let arr = [10, 12, 34, 50 , 80, 80];
+    let arr = [10, 12, 34, 50 , 80, 85];
 
 let min = arr[0];
 
