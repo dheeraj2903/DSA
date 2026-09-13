@@ -17,15 +17,11 @@ function secondLarNum() {
     console.log('Second Largest:', sMax);
 }
 
-secondLarNum()
 
 
+// All zeros to left all 1 to right two point algo
 
-
-
-// Swap the Number two point algo
-
-function swapFun() {
+function shiftZeroAndOne() {
 
     let arr = [ 0,0,1,1,0,1,0,0,1,0]
 
@@ -44,3 +40,20 @@ function swapFun() {
 }
 
 
+// Reverse the number by swap
+
+function reverseNum() {
+    let arr = [11,2,3,4,5,6];
+
+let i = 0 , j = arr.length-1;
+
+while(i<j){
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--
+}
+console.log(arr)
+}
+reverseNum()
