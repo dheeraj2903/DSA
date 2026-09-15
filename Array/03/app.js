@@ -102,4 +102,71 @@ function kRotation(){
     }
     console.log(arr)
 }
-kRotation()
+
+
+//Left Rotation only k position Optimized Approach
+
+function kRotate(){
+    let arr = [1,2,3,4,5,6]
+
+    let temp = new Array(arr.length);
+    let k = 2;
+    k = k % arr.length
+
+    for(let i=0; i<arr.length; i++){
+        temp[i] = arr[(i+k)%arr.length]
+    }
+    console.log(temp)
+}
+
+
+//Block-Swap Reverse Algorithm Left Rotation k position Optimized Approach
+
+
+function blockSwapRev(){
+
+    let prompt = require("prompt-sync")()
+    let arr = [1,2,3,4,5]
+    let k = Number(prompt('Enter Number:'))
+    
+    k = k % arr.length;
+
+    reverse(arr, 0, k-1);
+    reverse(arr, k, arr.length-1);
+    reverse(arr, 0, arr.length-1);
+
+
+    function reverse(arr, i, j){
+        while(i<j){
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+            i++;
+            j--;
+        }
+    }
+
+    console.log(arr)
+}
+
+
+//Linear traversal Algorithm
+
+function LinearTraversal(){
+    let prompt = require('prompt-sync')();
+    let target = Number(prompt("Enter target value:"));
+let arr = [12, 8, 17, 55, 89, 34, 19, 32];
+let index = -1;
+
+for(let i=0; i<arr.length; i++){
+    if(arr[i] == target){
+        index = i;
+        break;
+    }   
+}
+
+    if(index == -1) console.log('Element not found');
+    else(console.log("Element found at " + index + ' index'))
+}
+LinearTraversal()
