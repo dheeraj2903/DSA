@@ -69,4 +69,27 @@ function selectionSort(){
     console.log(arr);
     
 }
-selectionSort()
+
+
+// Insertion sort
+
+function insertionSort(){
+    let arr=[3, 2, 5,9, 7, 11]
+    
+    for(let i=1; i<arr.length; i++){
+        
+        let key = arr[i];
+        let j = i - 1;
+
+        while(j>=0 && arr[i]>key){
+            arr[j+1] = arr[j]
+            j--
+        }
+
+        arr[j+1] = key;
+    }
+    console.log(arr);
+    
+}
+
+insertionSort()
