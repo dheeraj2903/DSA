@@ -66,43 +66,75 @@ function spiralMat() {
   ];
 
   let minC = 0;
-  let maxC = matrix[0].length-1;
+  let maxC = matrix[0].length - 1;
 
-  let minR = 0; 
-  let maxR = matrix.length -1;
+  let minR = 0;
+  let maxR = matrix.length - 1;
 
   let ans = [];
   let totalEle = matrix.length * matrix[0].length;
 
-  while(ans.length < totalEle){
-
+  while (ans.length < totalEle) {
     //First Wall -> Left to Right
-    for(let C= minC; C<=maxC && ans.length < totalEle; C++){
-        ans.push(matrix[minR][C])
+    for (let C = minC; C <= maxC && ans.length < totalEle; C++) {
+      ans.push(matrix[minR][C]);
     }
-    minR++
+    minR++;
 
-    // Right Column -> Top to Bottom 
-    for(let R = minR; R<=maxR && ans.length < totalEle; R++){
-        ans.push(matrix[R][maxC])
+    // Right Column -> Top to Bottom
+    for (let R = minR; R <= maxR && ans.length < totalEle; R++) {
+      ans.push(matrix[R][maxC]);
     }
-    maxC --
+    maxC--;
 
     // Lowest wall => Right to Left
-    for(let C = maxC; C>=minC && ans.length < totalEle; C--){
-        ans.push(matrix[maxR][C])
+    for (let C = maxC; C >= minC && ans.length < totalEle; C--) {
+      ans.push(matrix[maxR][C]);
     }
-    maxR--
+    maxR--;
 
     // Left Column -> Bottom to top
-    for(let R = maxR; R>=minR && ans.length < totalEle; R--){
-        ans.push(matrix[R][minC])
+    for (let R = maxR; R >= minR && ans.length < totalEle; R--) {
+      ans.push(matrix[R][minC]);
     }
-    minC++
+    minC++;
   }
-//  return ans
+  //  return ans
   console.log(ans);
-  
 }
 
-spiralMat()
+// Image reverse and Invert then
+
+function invertImage() {
+  let image = [
+    [0, 0, 1],
+    [1, 0, 1],
+    [0, 1, 1],
+  ];
+
+  for(let i=0; i<image.length; i++){
+
+    let left = 0;
+    let right = image[i].length - 1;
+
+    while(left<right){
+      let temp = image[i][left];
+      image[i][left] = image[i][right];
+      image[i][right] = temp;
+
+      left++;
+      right--
+    }
+
+    for(let j=0; j<image[i].length; j++){
+      if(image[i][j]===0){
+        image[i][j] = 1;
+      }else{
+        image[i][j] = 0
+      }
+    }
+  }
+
+  console.log(image);
+  
+}
