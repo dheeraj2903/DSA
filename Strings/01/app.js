@@ -85,4 +85,49 @@ function prefix(){
     
 }
 
-prefix()
+
+// Change 1st & last alphabet of string of sentence
+
+function capitalFirstAndLast(){
+    let words = "Hai hello  bhai log"
+    let arrStr = words.split(' ');
+    let ans = ""
+
+    for(let i=0; i<arrStr.length; i++){
+        let word = arrStr[i];
+
+        if(word.length<=2) ans=ans+word.toUpperCase();
+
+        else{
+            ans = ans + word.charAt(0).toUpperCase()
+                  + word.substring(1, word.length - 1)
+                  + word.charAt(word.length-1).toUpperCase() + " "
+        }
+    }
+
+    console.log(ans);
+    
+}
+
+
+//Frequency count of string
+
+function frequency(){
+    let prompt = require('prompt-sync')();
+    let s = prompt('Enter a string:');
+    let freqArr = new Array(123).fill(0);
+
+    for(let i=0; i<s.length; i++){
+        if(s[i] === " ") continue;
+        let ascii = s.charCodeAt(i)
+        freqArr[ascii] = freqArr[ascii] + 1;
+    }
+
+    for(let i=0; i<freqArr.length; i++){
+        if(freqArr[i]>0){
+            console.log(String.fromCharCode(i)+" --> " + freqArr[i]);
+            
+        }
+    }
+}
+frequency()
