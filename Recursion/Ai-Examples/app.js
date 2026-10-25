@@ -43,3 +43,20 @@ function power(base, exponent) {
 
 // console.log(power(2, 4));
 
+function mystery(n) {
+    if (n <= 0) return;
+
+    console.log(n);    // A
+    mystery(n - 2);   // B
+    console.log(n);    // C
+}
+
+
+
+function solve(n) {
+    if (n <= 0) return;
+
+    console.log(n);
+    solve(n - 1);
+    console.log(n + 1);
+}
