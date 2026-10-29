@@ -77,3 +77,79 @@ function reverseDigit() {
 }
 
 
+//Find common highest  factor of two numbers
+function highFactor(){
+  let a=126, b=54;
+  
+  for(let i=Math.min(a,b); i>=1; i--){
+    if(a%i==0 && b%i==0){
+      console.log(i);
+      break;
+    }
+  }
+}
+
+//Euclideon by loop
+function gcd(){
+  let a = 16, b = 25;
+   
+  while(a != b){
+    if(a>b) a = a-b;
+    else b = b-a
+  }
+  console.log(a);
+}
+
+//Euclideon by recursion
+function gcd(){
+  function gcd(a, b){
+    if(a==b) return a;
+    if(a>b) return gcd(a-b, b)
+      return gcd(a, b-a)
+}
+
+let a=16, b=25
+console.log(gcd(a,b));
+
+}
+
+
+//
+function gcd(a,b){
+    if(b==0) return a;
+    return gcd(b, a%b)
+}
+// console.log(gcd(16,24));
+
+//Sieve of Eratosthenes algorithm
+function checkPrime(){
+  let prompt = require("prompt-sync")()
+  let n = Number(prompt("Enter number:"));
+  checkRangeInPrime(n)
+
+  function checkRangeInPrime(n){
+    let isPrime = new Array(n+1).fill(true);
+    for(let i=2;i<=Math.floor(Math.sqrt(n)); i++){
+      if(isPrime[i] == true){
+        for(let j=i*i; j<=n; j+=i){
+          isPrime[j]=false
+        }
+      }
+    }
+    
+    for(let i=2; i<isPrime.length; i++){
+      if(isPrime[i])process.stdout.write(i+" ")
+    }
+  }
+}
+
+//LeetCode Number 69
+function mySqrt(n){
+  let i=1;
+  for(i; i*i<=n; i++){
+    if(i*i==n) return i
+  }
+  return i-1
+}
+let n = 16
+console.log(mySqrt(n));
