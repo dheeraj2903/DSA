@@ -144,7 +144,8 @@ function checkPrime(){
 }
 
 //LeetCode Number 69
-function mySqrt(n){
+function mySqrt(){
+  function mySqrt(n){
   let i=1;
   for(i; i*i<=n; i++){
     if(i*i==n) return i
@@ -153,3 +154,25 @@ function mySqrt(n){
 }
 let n = 16
 console.log(mySqrt(n));
+}
+
+//LeetCode Number 50
+
+function myPow(){
+  let x = 2
+  let n = 10
+
+  myPow(x,n)
+  function myPow(x,n){
+    if(n==0) return 1;
+    return n<0? 1/temp(x,n) : temp(x,n)
+  }
+
+  function temp(x,n){
+    if(n==0) return 1
+    let ans = temp(x, parseInt(n/2))
+    if(n%2 == 0) return ans*ans;
+    return ans*ans*x
+  }
+}
+console.log(myPow());
