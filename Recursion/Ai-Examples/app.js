@@ -60,3 +60,52 @@ function solve(n) {
     solve(n - 1);
     console.log(n + 1);
 }
+
+//Count Digits Using Recursion
+function countDigits(n) {
+    if (n < 10) return 1;
+
+    return 1 + countDigits(Math.floor(n / 10));
+}
+
+//Sum of Digits
+function sumDigits(n) {
+    if (n === 0) return 0;
+
+    return (n % 10) + sumDigits(Math.floor(n / 10));
+}
+
+
+//Check Whether Array Is Sorted
+function isSorted(arr, index = 0) {
+    if (index === arr.length - 1) return true;
+
+    if (arr[index] > arr[index + 1]) {
+        return false;
+    }
+
+    return isSorted(arr, index + 1);
+}
+
+
+//Find First Occurrence in Array
+function firstOccurrence(arr, target, index = 0) {
+    if (index === arr.length) return -1;
+
+    if (arr[index] === target) return index;
+
+    return firstOccurrence(arr, target, index + 1);
+}
+
+
+//Generate All Binary Strings
+function binaryStrings(n, current = "") {
+    if (current.length === n) {
+        console.log(current);
+        return;
+    }
+
+    binaryStrings(n, current + "0");
+
+    binaryStrings(n, current + "1");
+}
